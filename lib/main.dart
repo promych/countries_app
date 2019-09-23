@@ -1,9 +1,10 @@
-import 'package:countries_app/app/app_manager.dart';
-import 'package:countries_app/ui/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:provider/provider.dart';
+
+import 'app/app_manager.dart';
+import 'ui/home.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
