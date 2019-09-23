@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final ValueNotifier<GraphQLClient> client = ValueNotifier(
       GraphQLClient(
-        link: HttpLink(uri: 'https://countries.trevorblades.com/') as Link,
+        link: HttpLink(uri: 'https://countries.trevorblades.com/'),
         cache: InMemoryCache(),
       ),
     );
@@ -31,7 +31,8 @@ class MyApp extends StatelessWidget {
               options: QueryOptions(
                   document:
                       'query GetCountries{ countries { name, emoji, native, currency, phone, languages { name } } }'),
-              builder: (QueryResult result, {VoidCallback refetch}) {
+              builder: (QueryResult result,
+                  {VoidCallback refetch, FetchMore fetchMore}) {
                 if (result.loading)
                   return Center(child: CupertinoActivityIndicator());
                 if (result.data == null) return Center(child: Text('No data'));
